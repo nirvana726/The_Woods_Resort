@@ -1,6 +1,5 @@
 import React from "react";
 import { FaUser, FaEnvelope } from "react-icons/fa";
-import Navbar from "./Navbar";
 import { useAuth } from "../../context/UserContext";
 
 const Details = () => {
@@ -13,10 +12,9 @@ const Details = () => {
 
   return (
     <div className="flex flex-row ml-16">
-      <Navbar />
       <div className="p-8 bg-gray-50 mx-8 h-full flex flex-col justify-center">
         <h2 className="text-2xl font-semibold mb-6 text-gray-800">
-          User Details
+          Admin Details
         </h2>
 
         <div className="flex items-center text-gray-800 mb-4">

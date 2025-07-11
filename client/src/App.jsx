@@ -5,10 +5,8 @@ import { Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import About from "./pages/About";
 import Login from "./pages/Login";
-import UserDashboard from "./pages/User/UserDashboard";
 import DashBoard from "./pages/Admin/DashBoard";
 import CreatePost from "./pages/Admin/CreatePost";
-import Register from "./pages/Register";
 import Details from "./pages/Admin/Details";
 import PrivateRoute from "./components/Routes/Admin";
 import UserRoutes from "./components/Routes/Private";
@@ -16,9 +14,7 @@ import CreateCategory from "./pages/Admin/CreateCategory";
 import AllPost from "./pages/Admin/AllPost";
 import AllTrip from "./pages/Admin/AllTrip";
 import UpdatePost from "./pages/Admin/UpdatePost";
-import CartPage from "./pages/CartPage";
 import Payment from "./pages/Payment";
-import YourOrder from "./pages/YourOrder";
 import ThankYou from "./components/ThankYou";
 import SelectedCategory from "./pages/SelectedCategory";
 import Contact from "./pages/Contact";
@@ -58,18 +54,9 @@ function App() {
         <Route path="/cancellation" element={<Cancellation />} />
         <Route path="/guest-guidelines" element={<GuestGuidelines />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/cart" element={<CartPage />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/thank-you" element={<ThankYou />} />
         <Route path="/category/:slug" element={<SelectedCategory />} />
-
-        {/* User Protected Routes */}
-        <Route path="/user" element={<UserRoutes />}>
-          <Route index element={<UserDashboard />} />
-          <Route path="your-order" element={<YourOrder />} />
-          {/* <Route path="create-post" element={<ContributePost />} /> */}
-        </Route>
 
         {/* Admin Protected Routes */}
         <Route path="/admin" element={<PrivateRoute />}>
@@ -81,8 +68,6 @@ function App() {
           <Route path="details" element={<Details />} />
           <Route path="all-booking" element={<AllTrip />} />
           <Route path="post/:slug" element={<UpdatePost />} />
-          
-
           {/* New Admin Pages */}
           <Route path="rooms" element={<RoomsAdmin />} />
           <Route path="activities" element={<ActivitiesAdmin />} />

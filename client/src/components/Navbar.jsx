@@ -17,7 +17,8 @@ const policyPaths = [
   "/privacy-policy",
   "/terms",
   "/cancellation",
-  "/guest-guidelines"
+  "/guest-guidelines",
+  "/login", // Always solid background on login page
 ];
 
 const Navbar = () => {
@@ -53,15 +54,15 @@ const Navbar = () => {
   const renderProfileOrLogin = () => (
     auth?.user ? (
       <button
-        className="ml-4 text-3xl text-[var(--heading)] hover:text-[var(--accent)] transition"
-        onClick={() => navigate('/user/dashboard')}
+        className={`ml-4 text-4xl transition ${isAtTop && !isPolicyPage ? 'text-white hover:text-[var(--accent)]' : 'text-[var(--heading)] hover:text-[var(--accent)]'}`}
+        onClick={() => navigate('login')}
         aria-label="Profile"
       >
         <FaUserCircle />
       </button>
     ) : (
       <button
-        className="bg-[#014443] hover:bg-[#012e2a] text-white font-semibold px-8 py-2 rounded-full text-base transition-colors duration-200"
+        className="bg-[#014443] hover:bg-{[#012e2a]} text-white font-semibold px-8 py-2 rounded-full text-base transition-colors duration-200 hover:bg-[var(--accent)] hover:text-[var(--heading)]"
         style={{
           minWidth: '140px',
           letterSpacing: '0.01em',
@@ -76,11 +77,11 @@ const Navbar = () => {
 
   return (
     <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${navBackground} ${textColor}`}>
-      <div className="container mx-auto px-4 flex justify-between items-center h-20">
+      <div className="container mx-auto px-4 flex justify-between items-center h-24">
         {/* Left: Logo */}
         <div className="flex items-center gap-2">
           <NavLink to="/" className="flex items-center h-14">
-            <div className="bg-white rounded-full h-14 w-14 flex items-center justify-center shadow-lg">
+            <div className="bg-white rounded-full h-18 w-18 flex items-center justify-center shadow-lg">
               <img
                 src="/logo.avif"
                 alt="The Woods Charikot Resort Logo"
@@ -139,7 +140,7 @@ const Navbar = () => {
                 className="mt-4 text-3xl text-[var(--heading)] hover:text-[var(--accent)] transition"
                 onClick={() => {
                   setIsMenuOpen(false);
-                  navigate('/user/dashboard');
+                  navigate('login');
                 }}
                 aria-label="Profile"
               >

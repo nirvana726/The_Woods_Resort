@@ -89,9 +89,9 @@ export default function Footer() {
 
             <div>
               <h3 className="font-semibold text-xl text-[var(--heading)] mb-4">Follow Us</h3>
-              <div className="flex flex-col space-y-4">
+              <div className="flex flex-col space-y-5 ">
                 {socialLinks.map((social) => (
-                   <a key={social.label} href={social.href} aria-label={social.label} target="_blank" rel="noopener noreferrer" className="text-[var(--text)] hover:text-[var(--heading)] transition-colors">
+                   <a key={social.label} href={social.href} aria-label={social.label} target="_blank" rel="noopener noreferrer" className="text-[var(--text)] hover:text-[var(--accent)] transition-colors">
                      {social.icon}
                    </a>
                 ))}

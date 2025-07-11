@@ -6,7 +6,6 @@ import { BrowserRouter } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthProvider } from "./context/UserContext.jsx"; 
-import { CartProvider } from "./context/Cart.jsx";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { BookingProvider } from "./context/Booking.jsx";
@@ -24,7 +23,6 @@ createRoot(document.getElementById("root")).render(
     <AuthProvider>
       <BookingProvider>
         <Elements stripe={stripePromise}>
-          <CartProvider>
               <RoomProvider>
                 <ActivityProvider>
                   <BrowserRouter>
@@ -34,7 +32,6 @@ createRoot(document.getElementById("root")).render(
                   </BrowserRouter>
                 </ActivityProvider>
               </RoomProvider>
-          </CartProvider>
         </Elements>
       </BookingProvider>
     </AuthProvider>
